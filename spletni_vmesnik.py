@@ -3,6 +3,17 @@ import model
 #NIKOLI NE IMPORTAJ sqlite3 v spletni vmesnik
 
 glavni_model = model.Model()
+@bottle.route("/static/img/<filename>")
+def serve_static_file_img(filename):
+    return bottle.static_file(
+        filename , root = "./static/img"
+    )
+@bottle.route("/static/css/<filename>")
+def serve_static_file_css(filename):
+    return bottle.static_file(
+        filename , root = "./static/css"
+    )
+
 
 @bottle.get("/")
 def glavna_stran():
